@@ -1,7 +1,7 @@
 from functools import wraps
 
 
-class IPValidation(Exception):
+class IPValidationError(Exception):
     def __init__(self, message="Ip address not valid!"):
         self.message = message
         super().__init__(self.message)
@@ -13,13 +13,13 @@ def ip_validator(func):
         print('Validating..')
         ip_parts = ip.split('.')
         if len(ip_parts) != 4:
-            raise IPValidation
+            raise IPValidationError
         for ips in ip_parts:
             if len(ips) > 1 and ips[0] == '0':
-                raise IPValidation
+                raise IPValidationError
             ips = int(ips)
             if 0 >= ips >= 255:
-                raise IPValidation
+                raise IPValidationError
         return func(ip)
 
     return wrapper
