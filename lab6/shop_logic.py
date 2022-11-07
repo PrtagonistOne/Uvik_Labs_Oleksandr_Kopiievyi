@@ -45,7 +45,7 @@ class Car:
 
 
 car1 = Car('1A24', 'Red', model1)
-# print(car1.return_car_model_info())
+print(car1.return_car_model_info())
 
 
 class Client:
