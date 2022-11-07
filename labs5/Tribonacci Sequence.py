@@ -1,16 +1,18 @@
-from functools import reduce
+from functools import reduce, lru_cache
 
 
-def tribonaka(initial_sequence: list, n: int):
-    final_sequence = initial_sequence.copy()
-    # Removing initial n sequence from the couґnt
-    for _ in range(n-3):
+@lru_cache
+def get_tribonacci(initial_sequence: tuple, n: int):
+    final_sequence = list(initial_sequence)
+    # Removing initial n sequence from the count
+    for _ in range(n - 3):
         temp_partial = reduce(lambda x, y: x + y, initial_sequence)
-        initial_sequence.pop(0)
-        initial_sequence.append(temp_partial)
+        initial_sequence = initial_sequence[1:]
+        initial_sequence = initial_sequence + (temp_partial,)
         final_sequence.append(temp_partial)
     return final_sequence
 
 
-print(tribonaka([1, 1, 1], 8))
-print(tribonaka([0, 0, 1], 9))
+print(get_tribonacci((1, 1, 1), 8))
+print(get_tribonacci((0, 0, 1), 9))
+
