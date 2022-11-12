@@ -1,3 +1,6 @@
+import sys
+from getpass import getpass
+
 from models.car_models import Car, Brand, Model
 from models.client_models import Client
 from models.rent_models import Rent
@@ -39,11 +42,26 @@ client1 = Client(first_name='John', last_name='Johnson', password='Secret')
 client1.get_pretty_client_info()
 
 # Client is renting a car using his password (not successful)
-if not client1.get_login_session_access('secret'):
-    print('Try again', '\n')
-# Client remembers corrects the password and started filling out a rent form online (not successful)
-if client1.get_login_session_access('Secret'):
+client_password = getpass("Enter the Password: ", stream=sys.stderr)
+if client1.get_login_session_access(password=client_password):
+    print('Access granted!')
     rent1 = Rent(client_info=client1, car_info=car1, amount_of_days=3)
     # Client seems following message
     print(f'You obligated to pay - {rent1.renting_price} for {rent1.amount_of_days} days.')
     # Client remembered that he had no money and leaves the store sad :(
+else:
+    print('Access Denied!')
+    print('Try again', '\n')
+
+client_password = getpass("Enter the Password: ", stream=sys.stderr)
+if client1.get_login_session_access(password=client_password):
+    client1.get_pretty_client_info()
+    rent1 = Rent(client_info=client1, car_info=car1, amount_of_days=3)
+    # Client seems following message
+    print(f'You obligated to pay - {rent1.renting_price} for {rent1.amount_of_days} days.')
+    # Client remembered that he had no money and leaves the store sad :(
+else:
+    print('Access Denied!')
+    print('Try again', '\n')
+
+
