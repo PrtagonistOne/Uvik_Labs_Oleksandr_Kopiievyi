@@ -1,9 +1,8 @@
-def pretty(d, indent=0):
-    formatted_str = ''
-    for key, value in d.items():
-        formatted_str += '\t' * indent + str(key) + ':'
-        if isinstance(value, dict):
-            pretty(value, indent + 1)
+def prettify(data, indent=0):
+    for k, v in data.items():
+        print(" " * indent, f"{k}:", end='')
+        if isinstance(v, dict):
+            print()
+            prettify(v, indent + 1)
         else:
-            formatted_str += '\t' * (indent + 1) + str(value) + '\n'
-    return formatted_str.strip()
+            print(" " * (indent + 1), v)

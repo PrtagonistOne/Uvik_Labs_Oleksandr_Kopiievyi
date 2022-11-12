@@ -23,7 +23,7 @@ class Client:
 
     def _get_hashed_password(self):
         self.hashed_password = self.hash_password(self.password)
-        del self.password
+        setattr(self, 'password', '*****')
 
     @staticmethod
     def hash_password(password) -> bytes:

@@ -1,10 +1,11 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
+
+from models import prettify
 from models.car_models import Car, Brand, Model
 from models.client_models import Client
 from datetime import date, timedelta
-from copy import copy
 
-from models_template.rent_logic_blueprint import RentLogic
+from blueprints.rent_logic_blueprint import RentLogic
 
 
 @dataclass
@@ -24,6 +25,13 @@ class Rent(RentLogic):
     def is_rent_over(self) -> bool:
         return self.rent_end_date.day - date.today().day == 0
 
+    def get_dict_info(self) -> dict:
+        return asdict(self)
+
+    def get_pretty_rent_info(self) -> None:
+        print('General rent info:')
+        prettify(self.get_dict_info())
+
     def __eq__(self, other):
         return self.renting_price == other.renting_price
 
@@ -33,7 +41,7 @@ class Rent(RentLogic):
     def __copy__(self):
         cls = self.__class__
         new_copy = cls.__new__(cls)
-        new_copy.__dict__.update(self.__dict__)
+        new_copy.__dict__.update(asdict(self))
         return new_copy
 
 
@@ -49,11 +57,13 @@ if __name__ == "__main__":
     rent1 = Rent(client_info=client1, car_info=car1, amount_of_days=3)
     rent2 = Rent(client_info=client2, car_info=car2, amount_of_days=3)
 
-    print(rent1.is_rent_over())
+    print(f"Checking if rent is over - {rent1.is_rent_over()}")
     # two different clients renting comparison overloaded
-    print(rent1 == rent2)
+    print(f"Comparing two different rent object {rent1 == rent2}")
     # adding certain days to the ending rent deadline
-    print(rent1 + 4)
+    print(f"Performing an arithmetic exercise - {rent1 + 4}")
     # copy of the rent
     rent_copy = rent1.__copy__()
-    print(rent_copy.client_info == rent1.client_info)
+    print('Checking if copy is good')
+    print(rent_copy.client_info == rent1.client_info.get_dict_info())
+    print(rent_copy.client_info is rent1.client_info.get_dict_info())

@@ -1,28 +1,35 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
-from models import pretty
-from models_template.car_logic_blueprints import CarLogic
+from models import prettify
+from blueprints.car_logic_blueprints import CarLogic, ModelLogic, BrandLogic
 
 
 @dataclass
-class Brand(CarLogic):
+class Brand(BrandLogic):
     """Model for Brand of the car"""
     name: str
     country: str
 
-    def return_basic_info(self) -> str:
-        return pretty(self.__dict__)
+    def get_dict_info(self) -> dict:
+        return asdict(self)
+
+    def get_pretty_brand_info(self) -> None:
+        print('General Brand info:')
+        prettify(self.get_dict_info())
 
 
 @dataclass
-class Model(CarLogic):
+class Model(ModelLogic):
     name: str
     technical_description: str
     brand_info: Brand
 
-    def return_basic_info(self) -> str:
+    def get_dict_info(self) -> dict:
+        return asdict(self)
+
+    def get_pretty_model_info(self) -> None:
         print(f"Brand info about the MODEL[{self.name}]:")
-        return pretty(self.brand_info.__dict__)
+        prettify(self.brand_info.get_dict_info())
 
 
 @dataclass
@@ -32,21 +39,24 @@ class Car(CarLogic):
     model_info: Model
     price_per_day: float = 100.0
 
-    def return_basic_info(self) -> str:
+    def get_dict_info(self) -> dict:
+        return asdict(self)
+
+    def get_pretty_car_info(self) -> None:
         print(f"Model info about the "
               f"CAR[{self.plate_numbers}],"
               f" COLOR[{self.color}], "
               f"DEFAULT PRICING PER DAY[{self.price_per_day}]:")
-        self.model_info.__dict__['brand_info'] = '\n' + pretty(self.model_info.__dict__['brand_info'].__dict__)
-        return pretty(self.model_info.__dict__)
+        prettify(self.model_info.get_dict_info())
 
 
 if __name__ == "__main__":
     brand1 = Brand(name='Tesla', country='USA')
+    brand1.get_pretty_brand_info()
+
     model1 = Model(name='X', technical_description='Electric Car', brand_info=brand1)
 
-    print(model1.return_basic_info())
-    print()
+    model1.get_pretty_model_info()
     car1 = Car('1A24', 'Red', model1)
-    print(car1.return_basic_info())
+    car1.get_pretty_car_info()
 

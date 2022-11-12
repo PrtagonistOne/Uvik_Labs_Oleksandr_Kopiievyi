@@ -1,9 +1,9 @@
 from abc import ABC, abstractmethod
 
 
-class RentLogic(ABC):
+class ShopPresentLogic(ABC):
 
     @abstractmethod
-    def is_rent_over(self) -> str:
+    def get_dict_info(self) -> dict:
         raise NotImplemented
 
