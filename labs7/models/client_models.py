@@ -1,43 +1,58 @@
+import sys
 from dataclasses import dataclass, field
+import os
+import binascii
+from getpass import getpass
 
-from models import pretty
+from backports.pbkdf2 import pbkdf2_hmac
+
+from models import prettify
 
 
 @dataclass
 class Client:
     first_name: str
     last_name: str
-    password: str = "Input you password."
+    password: str = field(repr=False)
     full_name: str = field(init=False)
-    hashed_password: int = field(init=False)
+    hashed_password: bytes = field(init=False)
 
     def __post_init__(self) -> None:
         self.full_name = f'{self.first_name} {self.last_name}'
-        self.hashed_password = hash(self.password)
+        self._get_hashed_password()
+
+    def _get_hashed_password(self):
+        self.hashed_password = self.hash_password(self.password)
         del self.password
 
-    def get_login_session_access(self, password: str) -> bool:
-        if hash(password) == self.hashed_password:
-            print("Access Granted!")
-            return True
-        print('Wrong Password')
-        return False
+    @staticmethod
+    def hash_password(password) -> bytes:
+        salt = binascii.unhexlify('aaef2d3f4d77ac66e9c5a6c3d8f921d1')
+        key = pbkdf2_hmac("sha256", password.encode("utf8"), salt, 50000, 32)
+        return binascii.hexlify(key)
 
-    def get_client_info(self) -> str:
+    def get_login_session_access(self, password: str) -> bool:
+        return self.hashed_password == self.hash_password(password)
+
+    def get_pretty_client_info(self) -> str:
         print('CLIENTS PERSONAL INFO:')
-        return pretty(self.__dict__)
+        return prettify(vars(self))
 
 
 if __name__ == "__main__":
     client1 = Client(first_name='John', last_name='Johnson', password='Secret')
 
-    client_password = 'secret'
+    client_password = getpass("Enter the Password: ", stream=sys.stderr)
+
     if client1.get_login_session_access(password=client_password):
-        print(client1.get_client_info_dict())
+        print('Access granted!')
+        client1.get_pretty_client_info()
+    else:
+        print('Access Denied!')
 
-    client_password = 'Secret'
+    client_password = getpass("Enter the Password: ", stream=sys.stderr)
     if client1.get_login_session_access(password=client_password):
-        print(client1.get_client_info_dict())
-
-
+        client1.get_pretty_client_info()
+    else:
+        print('Access Denied!')
 
