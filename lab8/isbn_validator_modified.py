@@ -1,14 +1,9 @@
-from dataclasses import dataclass
-from functools import wraps
-
-
 class ISBNValidationError(Exception):
     def __init__(self, message="ISBN-10 address is not valid!"):
         self.message = message
         super().__init__(self.message)
 
 
-@dataclass
 class ISBNValidator:
     def __call__(self, isbn):
         """Change the position of the entity."""
