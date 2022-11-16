@@ -25,12 +25,12 @@ class Rent(RentLogic):
     def is_rent_over(self) -> bool:
         return self.rent_end_date.day - date.today().day == 0
 
-    def get_dict_info(self) -> dict:
+    def __repr__(self) -> dict:
         return asdict(self)
 
-    def get_pretty_rent_info(self) -> None:
+    def __str__(self) -> None:
         print('General rent info:')
-        prettify(self.get_dict_info())
+        return prettify(self.__repr__())
 
     def __eq__(self, other):
         return self.renting_price == other.renting_price
@@ -65,5 +65,5 @@ if __name__ == "__main__":
     # copy of the rent
     rent_copy = rent1.__copy__()
     print('Checking if copy is good')
-    print(rent_copy.client_info == rent1.client_info.get_dict_info())
-    print(rent_copy.client_info is rent1.client_info.get_dict_info())
+    print(rent_copy.client_info == rent1.client_info.__repr__())
+    print(rent_copy.client_info is rent1.client_info.__repr__())

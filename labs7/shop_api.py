@@ -63,5 +63,3 @@ if client1.get_login_session_access(password=client_password):
 else:
     print('Access Denied!')
     print('Try again', '\n')
-
-

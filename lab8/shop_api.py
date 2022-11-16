@@ -13,7 +13,7 @@ def get_car_catalog_info(catalog_directory: tuple):
 
     print(catalog_top_intends)
     for car in catalog_directory:
-        car.get_pretty_car_info()  # catalog content
+        print(car)
     print(catalog_bottom_intends)
 
 
@@ -23,7 +23,7 @@ def perform_user_action(client: Client, car: Car, days: int) -> None:
         if client.get_login_session_access(password=client_password):
             print('Access granted!')
             rent1 = Rent(client_info=client, car_info=car, amount_of_days=days)
-            rent1.get_pretty_rent_info()
+            print(rent1)
             print(f'You obligated to pay - {rent1.renting_price} for {rent1.amount_of_days} days.')
             # Client remembered that he had no money and leaves the store sad :(
         else:
@@ -58,7 +58,7 @@ get_car_catalog_info(car_catalog)
 # Client fills out registration form at the reception desk
 # And the receptionist input the data into the database
 client1 = Client(first_name='John', last_name='Johnson', password='Secret')
-client1.get_pretty_client_info()
+print(client1)
 time.sleep(0.3)
 # Client is renting a chosen car with chosen day using his password
 days_to_rent = 3

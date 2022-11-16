@@ -5,22 +5,28 @@ class ISBNValidationError(Exception):
 
 
 class ISBNValidator:
-    def __call__(self, isbn):
-        """Change the position of the entity."""
-        print('Validating..')
-        if len(isbn) != 10:
-            raise ISBNValidationError
+    def __init__(self, *parameters):
+        self.parameters = parameters
 
-        nums = [10 if num == "X" else int(num) for num in isbn]
-        checked = sum(nums[num - 1] * num for num in range(1, 11)) % 11
-        if checked:
-            raise ISBNValidationError
-        print('Validated Successfully')
+    def __call__(self, func):
+        def wrapper(isbn: str):
+            print('Validating..', *self.parameters)
+            if len(isbn) != 10:
+                raise ISBNValidationError
+            nums = [10 if num == "X" else int(num) for num in isbn]
+            checked = sum(nums[num - 1] * num for num in range(1, 11)) % 11
+            if checked:
+                raise ISBNValidationError
+            return func(isbn)
+        return wrapper
 
-        return isbn
+
+@ISBNValidator("Very validating...", 'Very very Validating...')
+def connect_to_isbn_address(isbn: str):
+    return f"Successfully connected to {isbn}!"
 
 
 if __name__ == "__main__":
-    validate_isbn = ISBNValidator()
-    validate_isbn('048665088X')
-    validate_isbn('1112223339X')
+    print(connect_to_isbn_address('048665088X'))
+    print(connect_to_isbn_address('1112223339X'))
+

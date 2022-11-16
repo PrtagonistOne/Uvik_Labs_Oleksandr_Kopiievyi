@@ -25,7 +25,7 @@ class Client(ClientLogic):
         self.hashed_password = self.hash_password(self.password)
         setattr(self, 'password', '******')
 
-    def get_dict_info(self) -> dict:
+    def __repr__(self) -> dict:
         return asdict(self)
 
     @staticmethod
@@ -37,7 +37,7 @@ class Client(ClientLogic):
     def get_login_session_access(self, password: str) -> bool:
         return self.hashed_password == self.hash_password(password)
 
-    def get_pretty_client_info(self) -> str:
+    def __str__(self):
         print('CLIENTS PERSONAL INFO:')
         return prettify(asdict(self))
 
@@ -49,12 +49,12 @@ if __name__ == "__main__":
 
     if client1.get_login_session_access(password=client_password):
         print('Access granted!')
-        client1.get_pretty_client_info()
+        print(client1)
     else:
         print('Access Denied!')
 
     client_password = getpass("Enter the Password: ", stream=sys.stderr)
     if client1.get_login_session_access(password=client_password):
-        client1.get_pretty_client_info()
+        print(client1)
     else:
         print('Access Denied!')

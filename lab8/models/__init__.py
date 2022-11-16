@@ -1,8 +1,11 @@
 def prettify(data, indent=0):
+    pretty_string = ''
     for k, v in data.items():
-        print(" " * indent, f"{k}:", end='')
+        pretty_string += f'{" " * indent} {k}:'
         if isinstance(v, dict):
-            print()
+            # pretty_string += '\n'
             prettify(v, indent + 1)
         else:
-            print(" " * (indent + 1), v)
+            pretty_string += f'{" " * (indent + 1)} {v}\n'
+    # pretty_string += '\n'
+    return pretty_string

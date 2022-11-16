@@ -46,8 +46,7 @@ if __name__ == "__main__":
     brand1 = Brand(name='Tesla', country='USA')
     model1 = Model(name='X', technical_description='Electric Car', brand_info=brand1)
 
-    print(model1.get_pretty_brand_info())
+    model1.get_pretty_brand_info()
 
     car1 = Car('1A24', 'Red', model1)
-    print(car1.get_pretty_car_info())
-
+    car1.get_pretty_car_info()

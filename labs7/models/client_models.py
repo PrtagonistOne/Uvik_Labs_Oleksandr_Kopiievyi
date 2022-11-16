@@ -55,4 +55,3 @@ if __name__ == "__main__":
         client1.get_pretty_client_info()
     else:
         print('Access Denied!')
-
