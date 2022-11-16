@@ -15,7 +15,7 @@ available_dummy_cars = get_dummy_cars(available_dummy_models)
 get_car_catalog_info(available_dummy_cars)
 # Client registered his account
 dummy_client = get_dummy_client_data()
-dummy_client.get_pretty_client_info()
+print(dummy_client)
 time.sleep(0.2)
 # Client is renting a chosen car with chosen day using his password
 days_to_rent = 3

@@ -7,7 +7,7 @@ def get_car_catalog_info(catalog_directory: tuple) -> None:
 
     print(catalog_top_intends)
     for car in catalog_directory:
-        car.get_pretty_car_info()  # catalog content
+        print(car)
     print(catalog_bottom_intends)
 
 

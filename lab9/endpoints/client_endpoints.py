@@ -11,7 +11,7 @@ def get_client_rent_info(client: Client, car: Car, days: int) -> None:
         if client.get_login_session_access(password=client_password):
             print('Access granted!')
             rent1 = Rent(client_info=client, car_info=car, amount_of_days=days)
-            rent1.get_pretty_rent_info()
+            print(rent1)
             print(f'You obligated to pay - {rent1.renting_price} for {rent1.amount_of_days} days.')
             # Client remembered that he had no money and leaves the store sad :(
         else:

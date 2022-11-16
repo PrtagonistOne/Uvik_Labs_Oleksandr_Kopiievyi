@@ -6,7 +6,6 @@ from getpass import getpass
 from backports.pbkdf2 import pbkdf2_hmac
 
 from blueprints.client_logic_blueprints import ClientLogic
-from utils.helpers import prettify
 
 
 @dataclass
@@ -25,9 +24,6 @@ class Client(ClientLogic):
         self.hashed_password = self.hash_password(self.password)
         setattr(self, 'password', '******')
 
-    def get_dict_info(self) -> dict:
-        return asdict(self)
-
     @staticmethod
     def hash_password(password) -> bytes:
         salt = binascii.unhexlify('aaef2d3f4d77ac66e9c5a6c3d8f921d1')
@@ -37,10 +33,6 @@ class Client(ClientLogic):
     def get_login_session_access(self, password: str) -> bool:
         return self.hashed_password == self.hash_password(password)
 
-    def get_pretty_client_info(self) -> str:
-        print('CLIENTS PERSONAL INFO:')
-        return prettify(asdict(self))
-
 
 if __name__ == "__main__":
     client1 = Client(first_name='John', last_name='Johnson', password='Secret')
@@ -49,12 +41,12 @@ if __name__ == "__main__":
 
     if client1.get_login_session_access(password=client_password):
         print('Access granted!')
-        client1.get_pretty_client_info()
+        print(client1)
     else:
         print('Access Denied!')
 
     client_password = getpass("Enter the Password: ", stream=sys.stderr)
     if client1.get_login_session_access(password=client_password):
-        client1.get_pretty_client_info()
+        print(client1)
     else:
         print('Access Denied!')
