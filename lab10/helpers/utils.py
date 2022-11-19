@@ -16,7 +16,9 @@ def time_track_factory(behaviour_name: str):
             end = time.time()
             final_time = end - start
             print(f'Using {behaviour_name} - {round(final_time, 2)} seconds')
+
         return wrapper
+
     return time_track
 
 
@@ -27,6 +29,12 @@ def get_img_links(links_to_scrape: tuple) -> list:
         r = requests.get(url_to_scrape, stream=True)
         soup = BeautifulSoup(r.content, features="html.parser")
         category_name = url_to_scrape.split('/')[-3]
+
+        dir_name = os.path.abspath('files/')
+        if not os.path.isdir(dir_name):
+            os.mkdir(dir_name)
+            dir_name = os.path.abspath('files/scraped_images/')
+            os.mkdir(dir_name)
 
         dir_name = os.path.abspath(f'files/scraped_images/{category_name}')
         if not os.path.isdir(dir_name):
@@ -51,9 +59,14 @@ def parse_images_links(total_img_links: list) -> None:
 def get_and_write_wordlist(file_name: str) -> None:
     words = ''.join(str(uuid.uuid4()) + '\n' for _ in range(1_000_000))
 
-    dir_name = os.path.abspath('files/generated_files')
+    dir_name = os.path.abspath('files/')
+
     if not os.path.isdir(dir_name):
         os.mkdir(dir_name)
+        dir_name = f'{dir_name}/generated_files'
+        os.mkdir(dir_name)
+    else:
+        dir_name = f'{dir_name}/generated_files'
 
     with open(f'{dir_name}/{file_name}', 'w') as f:
         f.write(words)  # len = 37_000_000
