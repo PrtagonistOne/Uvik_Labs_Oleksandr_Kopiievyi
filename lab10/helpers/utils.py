@@ -56,8 +56,18 @@ def parse_images_links(total_img_links: list) -> None:
                 f.write(block)
 
 
-def get_and_write_wordlist(file_name: str) -> None:
-    words = ''.join(str(uuid.uuid4()) + '\n' for _ in range(1_000_000))
+def get_and_write_wordlist(file_name: str) -> str:
+    with open('Monte_Cristo.txt', 'r') as mc, open('Robinson.txt', 'r') as rc:
+        robinson = rc.read()
+        monte_cristo = mc.read()
+
+    case_text = robinson + monte_cristo
+
+    raw_text = ''.join(filter(str.isalpha, case_text))
+
+    alph = list(filter(str.isalpha, case_text))  # Вибираємо тільки літери з тексту
+    upper_case_perc = round(sum(map(str.isupper, alph)) / len(alph), 2)
+    lower_case_perc = round(sum(map(str.islower, alph)) / len(alph), 2)
 
     dir_name = os.path.abspath('files/')
 
@@ -69,4 +79,5 @@ def get_and_write_wordlist(file_name: str) -> None:
         dir_name = f'{dir_name}/generated_files'
 
     with open(f'{dir_name}/{file_name}', 'w') as f:
-        f.write(words)  # len = 37_000_000
+        f.write(raw_text)
+    return f"Amount of uppercase letters {upper_case_perc}, Amount of lowercase letters {lower_case_perc}"
