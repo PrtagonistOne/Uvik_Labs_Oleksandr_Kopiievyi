@@ -1,7 +1,7 @@
 import pytest
 
 import functions
-from functions.balanced_parantheses import check_balanced_parentheses, get_executing_module_name
+from functions.balanced_parantheses import check_balanced_parentheses
 
 
 @pytest.fixture(params=['balanced', 'unbalanced'])
