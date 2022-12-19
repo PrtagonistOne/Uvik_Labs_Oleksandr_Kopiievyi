@@ -68,7 +68,7 @@ CREATE INDEX IF NOT EXISTS post_id_index ON Post (id);
 
 CREATE TABLE IF NOT EXISTS Comment (
     id BIGINT REFERENCES Post (id),
-    username varchar(25) UNIQUE NOT NULL,
+    username varchar(25) NOT NULL,
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at DATE NOT NULL,
