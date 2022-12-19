@@ -12,12 +12,12 @@ CREATE INDEX IF NOT EXISTS category_id_index ON Category (id);
 
 CREATE TABLE IF NOT EXISTS Blog (
    id BIGINT PRIMARY KEY,
-   title VARCHAR(25) UNIQUE NOT NULL,
+   title VARCHAR(100) UNIQUE NOT NULL,
    content TEXT NOT NULL,
    description VARCHAR(250) NOT NULL,
    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
    is_public BOOLEAN NOT NULL DEFAULT '1',
-   CONSTRAINT proper_title CHECK ( Blog.title ~* '^[a-zA-Z]([\w -]*[a-zA-Z])?$' ),
+   CONSTRAINT proper_title CHECK ( Blog.title ~* '[a-zA-Z]([\w -]*[a-zA-Z])?' ),
    CONSTRAINT proper_description CHECK ( Blog.description ~* '.*' )
 
 );
@@ -59,15 +59,15 @@ CREATE TABLE IF NOT EXISTS Post (
     title varchar(25) NOT NULL,
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    updated_at DATE NOT NULL,
-    get_photo BYTEA NOT NULL,
+    updated_at DATE NOT NULL DEFAULT '1922-02-02',
+    get_photo BYTEA NULL DEFAULT '\000',
     CONSTRAINT proper_title CHECK ( Post.title ~* '^[a-zA-Z]([\w -]*[a-zA-Z])?$' )
 
 );
 CREATE INDEX IF NOT EXISTS post_id_index ON Post (id);
 
 CREATE TABLE IF NOT EXISTS Comment (
-    id BIGINT PRIMARY KEY REFERENCES Post (id),
+    id BIGINT REFERENCES Post (id),
     username varchar(25) UNIQUE NOT NULL,
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,

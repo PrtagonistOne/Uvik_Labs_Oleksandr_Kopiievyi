@@ -1,6 +1,6 @@
 id,username,email,password_hash,family_status,first_name,last_name,is_active
-1,jonathandoe, test1@gmail.com, 1, married, john, doe,FALSE
+1,jakedoe, test1@gmail.com, 1, married, jake, doe,FALSE
 2,mariana, test2@gmail.com, 1, single, marina, cooper,TRUE
 3,kariana, test3@gmail.com, 1, married, karina, kirkof,TRUE
 4,vadim, test4@gmail.com, 1, divorced,vadim, kordon, false
-5, kolyan, test5@gmail.com, 5, widowed, Nikolai, Mander, false
+5,kolyan, test5@gmail.com, 5, widowed, Nikolai, Mander, false
