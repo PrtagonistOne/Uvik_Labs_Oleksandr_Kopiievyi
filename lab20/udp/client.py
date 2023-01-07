@@ -1,19 +1,28 @@
-import socket
+import cv2, socket
+import base64
+
+from udp.video_func.client_video_func import run_client_capture
 
 server_address_port = ('127.0.0.1', 20001)
-buffer_size = 1024
-
-# Створюємо UDP socket клієнта
-UDP_client_socket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+buffer_size = 64_000
+message = b'Hello'
 
 
-while True:
-    msg_from_client = input('Your message to the world - ')
-    bytes_to_send = str.encode(msg_from_client)
-    # Відправка до сервера через створенний сокет
-    UDP_client_socket.sendto(bytes_to_send, server_address_port)
+with socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM) as client_socket:
+    client_socket.sendto(message, server_address_port)
 
-    smg_from_server = UDP_client_socket.recvfrom(buffer_size)
+    while True:
+        try:
+            packet,_ = client_socket.recvfrom(buffer_size)
+            data = base64.b64decode(packet, ' /')
+            run_client_capture(data)
+            key = cv2.waitKey(1) & 0xFF
 
-    msg = f'Message from Server {smg_from_server[0]}'
-    print(msg)
+            if key == ord('q'):
+                break
+        except socket.timeout:
+            print('REQUEST TIMED OUT')
+            break
+        except KeyboardInterrupt:
+            print('Client has ended the request')
+            break
