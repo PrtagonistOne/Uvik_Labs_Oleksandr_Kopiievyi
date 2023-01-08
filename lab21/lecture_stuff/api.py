@@ -1,4 +1,4 @@
-from webob import Request, Response
+from webob import Response
 from parse import parse
 
 from middleware import Middleware
