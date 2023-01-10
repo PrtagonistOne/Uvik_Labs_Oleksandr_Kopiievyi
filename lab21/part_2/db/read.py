@@ -1,38 +1,30 @@
-from .write import get_connection, save_and_close_connection
+from .db_utils import get_read_connection_data
 
 
 def get_all_post_data() -> list:
-    db = get_connection()
-    post_values = list(db.values())
-    save_and_close_connection(db)
-    return post_values
+    # sourcery skip: inline-immediately-returned-variable
+    get_all_sql_statement = '''SELECT * FROM post'''
+    return get_read_connection_data(sql_statement=get_all_sql_statement)
 
 
-def get_one_post_datum(id: int) -> dict:
-    db = get_connection()
+def get_post_by_id(_id: int) -> dict:
+    # sourcery skip: inline-immediately-returned-variable
+    get_all_sql_statement = f'''SELECT * FROM post WHERE id={_id}'''
     try:
-        post_value = db[id]
-    except KeyError:
-        post_value = {"error_message": f'ID #{id} not found'}
-
-    save_and_close_connection(db)
-    return post_value
+        post_record = get_read_connection_data(sql_statement=get_all_sql_statement)[0]
+    except IndexError:
+        post_record = {'Error message': 'Record not found'}
+    return post_record
 
 
-def get_post_data_by_likes(likes: int) -> list:
-    db = get_connection()
+def get_post_by_data(post_data: dict) -> list:
+    dynamic_where_sql_str = ' AND '.join(f"{key}='{value}'" for key, value in post_data.items())
+    get_post_data_sql = f'''SELECT * FROM post WHERE {dynamic_where_sql_str}'''
 
-    post_value = []
-    for id, post_datum in db.items():
-        post_value.extend(
-            db[id]
-            for key, val in post_datum.items()
-            if key == 'likes' and val == likes
-        )
-    return post_value
+    return get_read_connection_data(sql_statement=get_post_data_sql)
 
 
 if __name__ == "__main__":
     print(get_all_post_data())
-    print(get_one_post_datum(1))
-    print(get_post_data_by_likes(10))
+    print(get_post_by_id(_id=1))
+    print(get_post_by_data({'likes': 10, 'title': 'some title'}))

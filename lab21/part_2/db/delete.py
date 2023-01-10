@@ -1,11 +1,10 @@
-import sqlite3
+from .db_utils import delete_record
 
 
-def delete_record_by_id(id: int) -> None:
-    conn = sqlite3.connect('posts.sqlite')
+def delete_record_by_id(_id: int) -> None:
+    delete_sql_statement = f'''DELETE FROM post WHERE id={_id}'''
+    delete_record(sql_statement=delete_sql_statement)
 
-    sql = 'DELETE FROM unnamed WHERE key=?'
-    cur = conn.cursor()
-    cur.execute(sql, (id,))
-    conn.commit()
-    conn.close()
+
+if __name__ == "__main__":
+    delete_record_by_id(_id=11)

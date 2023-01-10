@@ -2,9 +2,9 @@ from webob import Response, Request
 
 from api import API, convertable_to_int
 from middleware.middleware import Middleware
-from db.read import get_all_post_data, get_one_post_datum, get_post_data_by_likes
-from db.write import save_to_db, update_record, partial_update
+from db.read import get_all_post_data, get_post_by_id, get_post_by_data
 from db.delete import delete_record_by_id
+from db.write import create_record, dynamic_update
 
 app = API()
 # gunicorn -b 127.0.0.1:8787 app:app
@@ -42,38 +42,36 @@ def home(request: Request, response: Response):
 
 @app.route("/api/posts/")
 def get_all_posts(request: Request, response: Response):
-    if request.headers.environ.get('REQUEST_METHOD') == "GET":
+    if request.headers.environ.get('REQUEST_METHOD') == "GET" and not request.GET:
         response.json = get_all_post_data()
+    elif request.headers.environ.get('REQUEST_METHOD') == "GET" and request.GET:
+        post_data = dict(request.GET.items())
+        response.json = get_post_by_data(post_data=post_data)
     elif request.headers.environ.get('REQUEST_METHOD') == "POST":
         body_json = convertable_to_int(request)
-        save_to_db(body_json)
+        created_post_data = create_record(post_data=body_json)
 
         response.status_code = 201
-        response.json = body_json
+        response.json = created_post_data
 
 
 @app.route("/api/posts/{id:d}/")
 def get_one_post(request: Request, response: Response, id: int):
     if request.headers.environ.get('REQUEST_METHOD') == "GET":
-        response.json = get_one_post_datum(id=id)
+        response.json = get_post_by_id(_id=id)
     if request.headers.environ.get('REQUEST_METHOD') == "PUT":
         body_json = convertable_to_int(request)
-        update_record(body_json, id=id)
+        updated_post_data = dynamic_update(body_json, _id=id)
+
         response.status_code = 200
-        response.json = body_json
+        response.json = updated_post_data
     if request.headers.environ.get('REQUEST_METHOD') == "PATCH":
         body_json = convertable_to_int(request)
-        partial_update(body_json, id=id)
+        updated_post_data = dynamic_update(post_data=body_json, _id=id)
+
         response.status_code = 200
-        response.json = get_one_post_datum(id=id)
+        response.json = updated_post_data
     if request.headers.environ.get('REQUEST_METHOD') == "DELETE":
-        delete_record_by_id(id=id)
+        delete_record_by_id(_id=id)
         response.status_code = 204
-        response.text = 'No content'
 
-
-@app.route("/api/posts")
-def get_posts_by_likes(request: Request, response: Response):
-    if request.headers.environ.get('REQUEST_METHOD') == "GET":
-        likes = dict(request.GET).get('likes')
-        response.json = get_post_data_by_likes(likes=int(likes))
