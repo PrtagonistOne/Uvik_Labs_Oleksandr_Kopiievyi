@@ -12,7 +12,7 @@ def get_post_by_id(_id: int) -> dict:
     get_all_sql_statement = f'''SELECT * FROM post WHERE id={_id}'''
     try:
         post_record = get_read_connection_data(sql_statement=get_all_sql_statement)[0]
-    except IndexError:
+    except (IndexError, KeyError):
         post_record = {'Error message': 'Record not found'}
     return post_record
 
