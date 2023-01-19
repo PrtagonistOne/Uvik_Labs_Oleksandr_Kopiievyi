@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<h1>WELCOME TO THE FAMILY</h1>
+<h3>Here is the list of current family members</h3>
+<div class="row">
+{% for user in users %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            {% if user.pfp %}
+                <img class="card-img-top" src="{{ user.pfp.url }}">
+            {% else %}
+                No profile picture.
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ user.username }}</h5>
+                <p class="card-text">{{ user.is_active }}</p>
+                <a href="{% url 'user_detail' user.pk %}"
+                   class="btn btn-primary">
+                    Learn More About this user
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

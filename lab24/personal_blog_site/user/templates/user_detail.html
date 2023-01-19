@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>{{ user.username }}</h1>
+<div class="row">
+    <div class="col-md-8">
+        {% if user.pfp %}
+            <img src="{{ user.pfp.url }}" alt="" width="100%">
+        {% else %}
+            No profile picture
+        {% endif %}
+    </div>
+    <div class="col-md-4">
+        <h5>About the blogger:</h5>
+        <p>First name: {{ user.first_name }}</p>
+        <p>Last name: {{ user.last_name }}</p>
+        <p>Family status: {{ user.family_status }}</p>
+        <p>User email: {{ user.email }}</p>
+        <p>User active: {{ user.is_active }}</p>
+        <br>
+    </div>
+</div>
+{% endblock %}
