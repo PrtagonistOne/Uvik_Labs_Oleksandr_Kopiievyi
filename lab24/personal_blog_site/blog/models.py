@@ -23,9 +23,9 @@ class Category(models.Model):
 # Blog should contain ManyToMany field
 class Blog(models.Model):
     category = models.ManyToManyField(Category, verbose_name='Categories')
-    title = models.CharField(max_length=25, unique=True, null=False)
+    title = models.CharField(max_length=125, unique=True, null=False)
     content = models.TextField(null=False)
-    description = models.CharField(max_length=100, null=False)
+    description = models.CharField(max_length=250, null=False)
     created_at = models.DateField(auto_now_add=True)
     is_public = models.BooleanField(null=False, default=True)
 
