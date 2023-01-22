@@ -10,8 +10,13 @@
         <p>Description: {{ blog.description }}</p>
         <p>Updated at: {{ blog.updated_at }}</p>
         <p>Created at: {{ blog.created_at }}</p>
-        <p>Is public: {{ blog.is_public }}</p>
         <br>
+        <h5>This blog is related with following categories:</h5>
+        {% if categories %}
+            {% for category in categories %}
+              <a class="nav-link" href="{% url 'category_detail' category.pk %}">{{ category }}</a>
+            {% endfor %}
+        {% endif %}
     </div>
 </div>
 {% endblock %}
