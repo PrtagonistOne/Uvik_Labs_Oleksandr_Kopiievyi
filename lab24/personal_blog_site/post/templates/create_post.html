@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<form method="post">
+    <h5>You will be displayed as Anonymous User </h5>
+    {% csrf_token %}
+    <br>
+    {{ form.as_div }}
+    <input type="submit" value="OK">
+</form>
+
+{% endblock %}

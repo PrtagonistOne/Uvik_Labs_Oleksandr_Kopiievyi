@@ -17,7 +17,7 @@ class Category(models.Model):
 
     class Meta:
         db_table = 'category'
-        verbose_name = 'Categories'
+        verbose_name_plural = 'Categories'
 
 
 # Blog should contain ManyToMany field

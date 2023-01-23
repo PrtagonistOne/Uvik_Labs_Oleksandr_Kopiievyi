@@ -61,7 +61,6 @@ CREATE TABLE IF NOT EXISTS Post (
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at DATE NOT NULL,
-    files oid,
     CONSTRAINT proper_title CHECK ( Post.title ~* '^[A-Za-z0-9_]+$' )
 
 );

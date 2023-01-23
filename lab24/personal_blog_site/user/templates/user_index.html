@@ -14,7 +14,7 @@
             {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{ user.username }}</h5>
-                <p class="card-text">{{ user.is_active }}</p>
+                <p class="card-text">Family status - {{ user.family_status }}</p>
                 <a href="{% url 'user_detail' user.pk %}"
                    class="btn btn-primary">
                     Learn More About this user
