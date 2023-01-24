@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block page_content %}
+    {% load crispy_forms_tags %}
+
 <h2>{{ post.title }}</h2>
 <h3>Post Content: {{ post.content }}</h3>
 <div class="row">
@@ -19,6 +21,8 @@
                 <p>Created at: {{ comment.created_at }}</p>
                 <h5>Anonymous: {{ comment.content }}</h5>
                 <a href="{% url 'delete_comment' comment.pk %}"> DELETE A COMMENT </a><br>
+                <a href="{% url 'update_comment' comment.pk %}"> UPDATE A COMMENT </a><br>
+
                 ----------------------------------------------------------
             {% endfor %}
         {% else %}

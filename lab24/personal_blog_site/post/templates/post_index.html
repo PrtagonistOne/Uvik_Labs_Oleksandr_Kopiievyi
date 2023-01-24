@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
+{% load crispy_forms_tags %}
 
 <h1>Here are the posts</h1>
-<a href="{% url 'create_post' %}"> ADD YOUR OWN POST </a>
+
 <div class="row">
 {% for post in posts %}
     <div class="col-md-4">

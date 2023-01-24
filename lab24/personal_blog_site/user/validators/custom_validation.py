@@ -6,8 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 def validate_username(username: str) -> None:
     pattern = re.compile(r"^[A-Za-z0-9_+-]+", re.IGNORECASE)
-
-    if pattern.match(username).group() != username:
+    if pattern.match(username) is None or pattern.match(username).group() != username:
         raise ValidationError(
             _('Username can only contain letters, digits, "_" and "-"')
         )

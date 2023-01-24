@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'post',
     'user.apps.UserConfig',
-    'django_extensions'
+    'django_extensions',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [

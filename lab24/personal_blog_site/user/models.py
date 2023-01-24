@@ -33,11 +33,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         validate_person_name(self.first_name)
         validate_person_name(self.last_name)
 
-    def save(self, *args, **kwargs):
-        if not kwargs:
-            self.set_password(self.password)
-            super(User, self).save()
-
     def __str__(self):
         return self.username
 

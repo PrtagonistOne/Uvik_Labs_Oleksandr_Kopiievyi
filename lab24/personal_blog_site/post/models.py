@@ -13,8 +13,8 @@ class Post(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, null=False)
     content = models.TextField(null=False)
-    created_at = models.DateField(null=False, auto_now_add=True)
-    updated_at = models.DateField(null=False, auto_now=True)
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
 
     def clean(self):
         validate_title(self.title)
@@ -30,8 +30,8 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.TextField(null=False, validators=[validate_comment_content])
-    created_at = models.DateField(auto_now_add=True, null=False)
-    updated_at = models.DateField(auto_now=True, null=False)
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
     is_deleted = models.BooleanField(null=False, default=False)
 
     def clean(self):

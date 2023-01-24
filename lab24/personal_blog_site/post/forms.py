@@ -5,13 +5,6 @@ from .models import Post, Comment
 from post.validation.custom_validation import validate_comment_content
 
 
-class PostForm(ModelForm):
-    class Meta:
-        model = Post
-        fields = ['blog', 'title', 'content']
-        exclude = ['username']
-
-
 class CommentForm(ModelForm):
     class Meta:
         model = Comment
