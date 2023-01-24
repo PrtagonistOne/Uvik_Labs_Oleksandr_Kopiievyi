@@ -26,7 +26,6 @@ class Post(models.Model):
         db_table = 'post'
 
 
-# Comment should contain one foreign key for Post
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.TextField(null=False, validators=[validate_comment_content])

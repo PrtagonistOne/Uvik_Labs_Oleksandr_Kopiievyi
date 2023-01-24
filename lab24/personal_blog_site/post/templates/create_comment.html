@@ -4,8 +4,8 @@
 {% load crispy_forms_tags %}
 
 <form method="post">
+{% csrf_token %}
     <h5>Comments are Anonymous </h5>
-    {% csrf_token %}
     <br>
     {{ form.as_div }}
     <input type="submit" value="OK">
