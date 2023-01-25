@@ -40,10 +40,10 @@ class CommentCreateFormView(FormView, CreateView):
         form = self.form_class(request.POST)
         if form.is_valid():
             logger.info('Success validate comment content')
-            anon_comment_data = {'id': Comment.objects.count() + 1,
-                                 'content': request.POST.dict().get('content', ''),
+            anon_comment_data = {'content': request.POST.dict().get('content', ''),
                                  'post': Post.objects.get(pk=kwargs["pk"])}
             new_comment = Comment(**anon_comment_data)
+            new_comment.clean()
             new_comment.save()
             return HttpResponseRedirect(f'/posts/{kwargs["pk"]}')
         args = {'form': form}

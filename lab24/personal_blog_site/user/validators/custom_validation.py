@@ -15,7 +15,7 @@ def validate_username(username: str) -> None:
 def validate_person_name(name: str) -> None:
     if name is not None:
         pattern = re.compile(r"^[A-Za-z]+$", re.IGNORECASE)
-        if pattern.match(name).group() != name:
+        if pattern.match(name) is None or pattern.match(name).group() != name:
             raise ValidationError(
                 _('Your first and last name can only contain letters')
             )
