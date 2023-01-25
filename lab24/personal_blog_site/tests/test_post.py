@@ -10,4 +10,8 @@ from post.validation.custom_validation import validate_comment_content
     (Comment(content='Fuck off!'), True),
 ])
 def test_profanity_validation(comment, expected_resul):
-    assert validate_comment_content(comment.content) == expected_resul
+    # given
+    # when
+    result = validate_comment_content(comment.content)
+    # then
+    assert result == expected_resul
