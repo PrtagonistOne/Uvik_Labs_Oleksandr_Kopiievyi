@@ -1,11 +1,14 @@
 from django import forms
 
 from django.forms import ModelForm
-from .models import Post, Comment
+
+from .models import Comment
 from post.validation.custom_validation import validate_comment_content
 
 
 class CommentForm(ModelForm):
+    content = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'No swear words!'}))
+
     class Meta:
         model = Comment
         fields = ['content']

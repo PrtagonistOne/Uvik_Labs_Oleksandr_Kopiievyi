@@ -27,9 +27,8 @@ class BlogView(View):
 
     def get(self, request, pk=None):
         if pk is None:
-            blogs = Blog.objects.all()
+            blogs = Blog.objects.prefetch_related('category')
             return render(request, self.template_name, {'blogs': blogs})
         blog = Blog.objects.get(pk=pk)
-        categories = Category.objects.all().filter(blog=blog)
+        categories = Category.objects.filter(blog=blog)
         return render(request, 'blog_detail.html', {'blog': blog, 'categories': categories})
-

@@ -6,7 +6,6 @@ from django.views import View
 from django.views.generic import FormView, CreateView, DeleteView, UpdateView
 
 from .models import Post, Comment
-
 from .forms import CommentForm
 
 
@@ -22,7 +21,7 @@ class PostView(View):
             posts = Post.objects.all()
             return render(request, self.template_name, {'posts': posts})
         post = Post.objects.get(pk=pk)
-        comments = Comment.objects.all().filter(post=post)
+        comments = Comment.objects.select_related('post').filter(post=post)
         return render(request, 'post_detail.html', {'post': post,
                                                     'comments': comments})
 
@@ -73,4 +72,3 @@ class CommentUpdateView(UpdateView):
     def get_success_url(self):
         logger.info('Success update comment')
         return f'/posts/{self.object.post.pk}'
-

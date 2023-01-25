@@ -4,7 +4,6 @@ from user.models import User
 from blog.models import Blog
 
 from blog.validators.custom_validators import validate_title
-
 from post.validation.custom_validation import validate_comment_content
 
 
@@ -28,7 +27,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    content = models.TextField(null=False, validators=[validate_comment_content])
+    content = models.TextField(null=False)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     is_deleted = models.BooleanField(null=False, default=False)

@@ -12,6 +12,7 @@ def test_username_create_user(user_model_instances):
         for user in users:
             with pytest.raises(ValidationError) as user_error:
                 user.clean()
+                user.clean()
             error_text = user_error.value.message
             results.append(error_text)
         assert User.objects.count() == 0
