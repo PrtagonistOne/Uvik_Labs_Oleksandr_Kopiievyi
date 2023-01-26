@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-t32#2f#9w0+@779j4ve&$s%6u-3kvi0v-q%iw4n01wi9+ok+b@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
 
 # Application definition
 
@@ -123,7 +123,6 @@ AUTHENTICATION_BACKENDS = [
     'user.authbackend.custom_auth.UsernameBackend',
     "django.contrib.auth.backends.ModelBackend",  # this line fixed my problem
 ]
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -131,10 +130,12 @@ LOGGING = {
         'file': {
             'class': 'logging.FileHandler',
             'filename': 'general.log',
+            'filters': ['require_debug_false']
         },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
+            'filters': ['require_debug_true']
         },
     },
     'loggers': {
@@ -143,6 +144,14 @@ LOGGING = {
             'handlers': ['file', 'console'],
         },
     },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue'
+        }
+    }
 }
 
 CACHES = {

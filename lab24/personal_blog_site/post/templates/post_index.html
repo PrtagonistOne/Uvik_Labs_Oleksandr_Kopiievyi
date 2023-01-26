@@ -4,7 +4,17 @@
 {% load crispy_forms_tags %}
 
 <h1>Here are the posts</h1>
+<h3>Currently there are {{ comments_count }} total comments left</h3>
 
+<div>
+<h4>Least popular posts</h4>
+{% for least_c_post in least_commented_posts %}
+    <h5>Post Title - {{ least_c_post.title }}</h5>
+    <p>Posted by user - {{ least_c_post.user }}</p>
+    <p>Comments count - {{ least_c_post.num_comments }}</p>
+    ________________________________________________
+{% endfor %}
+    </div>
 <div class="row">
 {% for post in posts %}
     <div class="col-md-4">

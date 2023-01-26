@@ -1,10 +1,11 @@
+from django.db.models import F
 from django.shortcuts import render
 
 from .models import User
 
 
 def user_index(request):
-    users = User.objects.all()
+    users = User.objects.order_by(F('first_name').asc())
     context = {
         'users': users
     }

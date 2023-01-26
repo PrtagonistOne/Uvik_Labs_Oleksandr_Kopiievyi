@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
+import logging
 import os
 import sys
 
@@ -15,8 +16,10 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
+    logger.info('Server started!')
     execute_from_command_line(sys.argv)
 
 
 if __name__ == '__main__':
+    logger = logging.getLogger(__name__)
     main()
