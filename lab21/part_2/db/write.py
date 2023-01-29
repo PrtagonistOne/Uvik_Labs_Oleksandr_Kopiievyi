@@ -14,7 +14,7 @@ def create_record(post_data: dict) -> dict:
     insert_post_sql = '''INSERT INTO post(title,body,likes) VALUES(?,?,?)'''
 
     created_id = perform_create(sql_statement=insert_post_sql, post_data=post_data)
-    return get_post_by_id(_id=created_id, )
+    return get_post_by_id(_id=created_id)
 
 
 if __name__ == "__main__":

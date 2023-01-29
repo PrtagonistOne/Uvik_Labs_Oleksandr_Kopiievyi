@@ -74,14 +74,4 @@ def perform_create(sql_statement: str, post_data: dict) -> int:
 
 
 if __name__ == "__main__":
-    connect = get_connection("../posts.sqlite")
     make_db()
-    insert_post_sql = ''' INSERT INTO post(title,body,likes)
-                  VALUES(?,?,?) '''
-
-    if connect is not None:
-
-        apply_sql(conn=connect, sql_statement=insert_post_sql, row_values=('some title', 'some body', '10'))
-    else:
-        print('No connection was not made!')
-
