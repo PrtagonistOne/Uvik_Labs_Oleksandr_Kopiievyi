@@ -17,6 +17,7 @@ class PostSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+# Validate_<field name> by method in serializer
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
