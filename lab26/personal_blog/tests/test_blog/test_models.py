@@ -16,5 +16,3 @@ def test_blog_create():
     blog.save()
     # then
     assert Blog.objects.count() == 1
-
-

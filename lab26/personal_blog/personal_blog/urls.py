@@ -24,12 +24,11 @@ main_router.registry.extend(post_router.registry)
 main_router.registry.extend(blog_router.registry)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(main_router.urls)),
-    path('', include('post.urls'))
-
+    path("admin/", admin.site.urls),
+    path("", include(main_router.urls)),
+    path("", include("post.urls")),
 ]
 
 urlpatterns += [
-    path('api-auth/', include('rest_framework.urls')),
+    path("api-auth/", include("rest_framework.urls")),
 ]
