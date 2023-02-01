@@ -12,7 +12,7 @@ STYLE_CHOICES = sorted([(item, item) for item in get_all_styles()])
 
 class Snippet(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    title = models.CharField(max_length=100, blank=True, default='')
+    main_title = models.CharField(max_length=100, blank=True, default='')
     code = models.TextField()
     lineos = models.BooleanField(default=False)
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python',
@@ -25,7 +25,7 @@ class Snippet(models.Model):
     def save(self, *args, **kwargs):
         lexer = get_lexer_by_name(self.language)
         linenos = 'table' if self.lineos else False
-        options = {'title': self.title} if self.title else {}
+        options = {'main_title': self.main_title} if self.main_title else {}
         formatter = HtmlFormatter(style=self.style, linenos=linenos,
                                   full=True, **options)
         self.highlighted = highlight(self.code, lexer, formatter)
