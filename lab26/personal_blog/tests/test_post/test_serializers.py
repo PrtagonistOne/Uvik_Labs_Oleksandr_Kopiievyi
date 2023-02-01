@@ -1,14 +1,10 @@
-from collections import OrderedDict
-
 import pytest
-import io
 
 from post.models import Post
 from post.serializers import PostSerializer
 
 from rest_framework.utils.serializer_helpers import ReturnDict
 from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
 
 
 @pytest.mark.django_db
@@ -23,4 +19,3 @@ def test_post_serializer(blog_model_instances, user_model_instances):
     # then
     assert type(post_serializer.data) == ReturnDict
     assert type(content) == bytes
-
