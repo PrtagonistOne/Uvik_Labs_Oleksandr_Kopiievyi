@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+{% load crispy_forms_tags %}
+
+<form method="post">
+{% csrf_token %}
+    <h5>Comments are Anonymous </h5>
+    <br>
+    {{ form.as_div }}
+    <input type="submit" value="OK">
+</form>
+
+{% endblock %}
