@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+{% load crispy_forms_tags %}
+
+<h1>Here are the posts</h1>
+
+<div class="row">
+{% for post in posts %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content|truncatechars:60 }}</p>
+                <p class="card-text">Updated_at {{ post.updated_at }}</p>
+                <p class="card-text">Created at {{ post.created_at }}</p>
+
+                <a href="{% url 'post_detail' post.pk %}"
+                   class="btn btn-primary">
+                    Learn more about this post
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
