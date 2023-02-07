@@ -1,0 +1,9 @@
+id,username,email,password,family_status,first_name,last_name,is_active,pfp,is_staff,is_superuser,pfp
+1,jakedoe,test1@gmail.com,1,married,jake,doe,False,,,False,profile_pictures/ж2.jpg
+2,mariana,test2@gmail.com,1,single,marina,cooper,True,,,False,profile_pictures/ж1_TJ4XIb2.jpeg
+3,kariana,test3@gmail.com,1,married,karina,kirkof,True,,,False,profile_pictures/м1.jpg
+4,vadim,test4@gmail.com,1,divorced,vadim, kordon,False,,,False,profile_pictures/м2.jpg
+5,kolyan,test5@gmail.com,5,widowed,Nikolai,Mander,False,,,False,profile_pictures/м3.jpg
+6,szpdiablo,14@gmail.com,1,single,,,True,profile_pictures/project3.png,False,False,profile_pictures/м4.jpg
+7,Prota,playerdna4@gmail.com,4862,widowed,Oleksandr,Kopiievyi,True,,True,True,profile_pictures/м5.jpg
+8,Anon,anon@gmail.com,1,,Anon,Anonenko,False,,False,False,profile_pictures/anon.jpg

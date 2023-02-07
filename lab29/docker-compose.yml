@@ -1,0 +1,32 @@
+version: '3.10'
+
+services:
+  web:
+    build: ./personal_blog_site
+    command: python manage.py runserver 0.0.0.0:7001
+    volumes:
+      - ./personal_blog_site/:/usr/src/app/
+    ports:
+      - "7001:7001"
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - db
+      - memcached
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=hero
+      - POSTGRES_PASSWORD=4862
+      - POSTGRES_DB=blog_db
+  memcached:
+    image: memcached
+    ports:
+      - "11211:11211"
+    entrypoint:
+      - memcached
+      - -m 64
+volumes:
+  postgres_data:

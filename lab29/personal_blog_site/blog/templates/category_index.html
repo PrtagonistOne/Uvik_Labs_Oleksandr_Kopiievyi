@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<h1>Here are the categories</h1>
+<h3>The list of current categories</h3>
+
+<div class="row">
+{% for category in categories %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5 class="card-title">{{ category.title }}</h5>
+                <p class="card-text">{{ category.description }}</p>
+                <p class="card-text">{{ category.is_public }}</p>
+
+                <a href="{% url 'category_detail' category.pk %}"
+                   class="btn btn-primary">
+                    Learn More About this category
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

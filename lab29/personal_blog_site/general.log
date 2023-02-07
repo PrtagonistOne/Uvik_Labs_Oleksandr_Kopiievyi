@@ -1,0 +1,608 @@
+Watching for file changes with StatReloader
+/home/prota/Documents/Python Intern/Uvik_Sergiy/labs/lab24/personal_blog_site/personal_blog_site/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Posts get view
+/home/prota/Documents/Python Intern/Uvik_Sergiy/labs/lab24/personal_blog_site/personal_blog_site/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Invalid HTTP_HOST header: '0.0.0.0:7001'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '0.0.0.0:7001'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '0.0.0.0:7001'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '0.0.0.0:7001'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+Not Found: /
+Not Found: /favicon.ico
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+retrying failed server: ('127.0.0.1', 11211)
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Invalid HTTP_HOST header: '0.0.0.0:7001'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '0.0.0.0:7001'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '0.0.0.0:7001'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '0.0.0.0:7001'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+Not Found: /
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+retrying failed server: ('127.0.0.1', 11211)
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 199, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+retrying failed server: ('127.0.0.1', 11211)
+Internal Server Error: /blogs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 199, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+marking server as dead: ('127.0.0.1', 11211)
+Internal Server Error: /blogs/categories/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 314, in _run_cmd
+    client = self._get_client(key)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 182, in _get_client
+    raise MemcacheError("All servers seem to be down right now")
+pymemcache.exceptions.MemcacheError: All servers seem to be down right now
+Internal Server Error: /posts/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 314, in _run_cmd
+    client = self._get_client(key)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 182, in _get_client
+    raise MemcacheError("All servers seem to be down right now")
+pymemcache.exceptions.MemcacheError: All servers seem to be down right now
+bringing server back into rotation ('127.0.0.1', 11211)
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+retrying failed server: ('127.0.0.1', 11211)
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 199, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+retrying failed server: ('127.0.0.1', 11211)
+Internal Server Error: /blogs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+retrying failed server: ('127.0.0.1', 11211)
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 199, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+retrying failed server: ('127.0.0.1', 11211)
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 199, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+marking server as dead: ('127.0.0.1', 11211)
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 314, in _run_cmd
+    client = self._get_client(key)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 182, in _get_client
+    raise MemcacheError("All servers seem to be down right now")
+pymemcache.exceptions.MemcacheError: All servers seem to be down right now
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 314, in _run_cmd
+    client = self._get_client(key)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 182, in _get_client
+    raise MemcacheError("All servers seem to be down right now")
+pymemcache.exceptions.MemcacheError: All servers seem to be down right now
+Watching for file changes with StatReloader
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 211, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+retrying failed server: ('127.0.0.1', 11211)
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 199, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+retrying failed server: ('127.0.0.1', 11211)
+Internal Server Error: /users/1
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 322, in _run_cmd
+    return self._safely_run_func(client, func, default_val, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 199, in _safely_run_func
+    result = func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 687, in get
+    return self._fetch_cmd(b"get", [key], False, key_prefix=self.key_prefix).get(
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 1133, in _fetch_cmd
+    self._connect()
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/base.py", line 424, in _connect
+    sock.connect(sockaddr)
+ConnectionRefusedError: [Errno 111] Connection refused
+marking server as dead: ('127.0.0.1', 11211)
+Internal Server Error: /users/1
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 314, in _run_cmd
+    client = self._get_client(key)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 182, in _get_client
+    raise MemcacheError("All servers seem to be down right now")
+pymemcache.exceptions.MemcacheError: All servers seem to be down right now
+Internal Server Error: /users/1
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/decorators.py", line 125, in _wrapped_view
+    result = middleware.process_request(request)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/cache.py", line 390, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/usr/local/lib/python3.9/site-packages/django/core/cache/backends/memcached.py", line 75, in get
+    return self._cache.get(key, default)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 347, in get
+    return self._run_cmd("get", key, default, default=default, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 314, in _run_cmd
+    client = self._get_client(key)
+  File "/usr/local/lib/python3.9/site-packages/pymemcache/client/hash.py", line 182, in _get_client
+    raise MemcacheError("All servers seem to be down right now")
+pymemcache.exceptions.MemcacheError: All servers seem to be down right now
+/usr/src/app/personal_blog_site/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/usr/src/app/personal_blog_site/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Posts get view
+Posts get view
+Success validate comment content
+Posts get view
+Success delete comment
+Posts get view
+Watching for file changes with StatReloader
+Posts get view
+Posts get view
+Success validate comment content
+Posts get view
+Posts get view
+Success delete comment
+Posts get view
+Success update comment
+Posts get view
